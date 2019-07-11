@@ -1,0 +1,10 @@
+{
+    "require": {
+        "symfony/routing": "^4.3",
+        "symfony/http-foundation": "^4.3",
+        "nikic/fast-route": "^1.3",
+        "corneltek/pux": "^1.6",
+        "bramus/router": "^1.4",
+        "ravenflux/php-functions": "^1.1"
+    }
+}

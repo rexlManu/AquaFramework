@@ -1,0 +1,26 @@
+* {
+    background-color: floralwhite;
+}
+h1 {
+    text-align: center;
+    margin-top: 18%;
+    font-family: 'Muli', sans-serif;
+    font-size: 50px;
+    color: rgb(0, 98, 196);
+
+}
+li {
+    display: inline;
+    list-style-type: none;
+    padding-right: 20px;
+}
+ul {
+    padding: 5px 20px 5px 20px;
+    text-align: center;
+    font-family: 'Muli', sans-serif;
+    font-size: 25px;
+}
+a {
+    text-decoration: none;
+    color: rgb(0, 98, 196);
+}
