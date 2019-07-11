@@ -4,23 +4,33 @@
 namespace aqua\framework;
 
 
-interface AquaSession
+use aqua\framework\providers\NormalAquaSession;
+use aqua\Kernel;
+
+abstract class AquaSession
 {
 
-    function create($expire = 86400);
+    abstract function create($expire = 86400);
 
-    function id();
+    abstract function id();
 
-    function regenerate();
+    abstract function regenerate();
 
-    function put(string $key, $object, $expire = 3600);
+    abstract function put(string $key, $object, $expire = 3600);
 
-    function get(string $key);
+    abstract function get(string $key);
 
-    function destroy();
+    abstract function destroy();
 
-    function userAgent();
+    abstract function userAgent();
 
-    function payload();
+    abstract function payload();
+
+    abstract function handle();
+
+    public static function getCurrent(): AquaSession
+    {
+        return new Kernel::$providers['session'];
+    }
 
 }

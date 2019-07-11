@@ -3,6 +3,8 @@
 namespace aqua;
 
 use aqua\framework\AquaRouter;
+use aqua\framework\AquaSession;
+use aqua\framework\providers\NormalAquaSession;
 use Dotenv\Dotenv;
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
@@ -13,6 +15,10 @@ class Kernel
     public static $env;
     public static $router;
     public static $twig;
+
+    public static $providers = [
+        'session' => NormalAquaSession::class
+    ];
 
     public static function boot()
     {
@@ -27,6 +33,8 @@ class Kernel
         foreach (glob(__DIR__ . '/routes/*.php') as $file) {
             require_once $file;
         }
+
+        AquaSession::getCurrent()->handle();
 
         self::$router->run();
     }

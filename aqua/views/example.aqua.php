@@ -15,7 +15,7 @@
 
     <form method="post" action="example">
 
-        <input type="text" name="name" value="test">
+        <input type="text" name="name" value="{{name}}">
         <button type="submit">Absenden</button>
 
     </form>
