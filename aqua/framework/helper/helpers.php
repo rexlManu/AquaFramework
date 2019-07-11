@@ -28,3 +28,27 @@ function regenerateCsrfToken()
     AquaCookie::set("_token", generateRandomString(16));
     return csrfToken();
 }
+
+function modelName($clazzName)
+{
+    $modelName = '';
+    $firstUpperCase = false;
+    foreach (str_split($clazzName) as $char) {
+        if (isPartUppercase($char)) {
+            if (!$firstUpperCase) {
+                $firstUpperCase = true;
+                $modelName = $modelName . strtolower($char);
+            } else {
+                $modelName = $modelName . '_' . strtolower($char);
+            }
+        } else {
+            $modelName = $modelName . $char;
+        }
+    }
+    return $modelName . (substr($modelName, -1) == 's' ? '' : 's');
+}
+
+function isPartUppercase($string)
+{
+    return ctype_upper($string);
+}

@@ -11,6 +11,16 @@ use PDO;
 class AquaDatabase
 {
 
+    protected static $_instance = null;
+
+    public static function getInstance()
+    {
+        if (null === self::$_instance) {
+            self::$_instance = new self;
+        }
+        return self::$_instance;
+    }
+
     private $connection;
     private $builder;
 
@@ -25,6 +35,14 @@ class AquaDatabase
                 return $statement->fetchAll(PDO::FETCH_ASSOC);
             }
         });
+    }
+
+    /**
+     * @return Builder
+     */
+    public function getBuilder(): Builder
+    {
+        return $this->builder;
     }
 
 }

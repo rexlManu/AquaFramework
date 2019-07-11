@@ -4,14 +4,28 @@
 namespace aqua\framework;
 
 
+use ClanCats\Hydrahon\Query\Sql;
+
 class AquaModel
 {
 
+    public static function all()
+    {
+    }
+
     private $fillables = [];
 
-    public function __construct(array $data)
+    /**
+     * AquaModel constructor.
+     * @param array $fillables
+     */
+    public function __construct(array $data = [])
     {
-
     }
+
+    public function save(array $data)
+    {
+    }
+
 
 }
