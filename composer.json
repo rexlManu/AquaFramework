@@ -1,6 +1,6 @@
 {
     "require": {
-        "bramus/router": "^1.4",
-        "ravenflux/php-functions": "^1.1"
+        "ravenflux/php-functions": "^1.1",
+        "twig/twig": "^2.0"
     }
 }
