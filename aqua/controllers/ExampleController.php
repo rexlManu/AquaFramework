@@ -2,6 +2,8 @@
 
 namespace aqua\controllers;
 
+use aqua\framework\AquaCookie;
+use aqua\framework\AquaCrypt;
 use aqua\framework\AquaRequest;
 use aqua\framework\Controller;
 
@@ -23,7 +25,8 @@ class ExampleController extends Controller
                     return $_SERVER['REMOTE_ADDR'];
             }
         }
-
+        $encryptedData = "QdD4YXKBxiqS40l3fHngtg==";
+        return $encryptedData . '<br>' . AquaCrypt::decrypt($encryptedData) . '<br>test';
         return $this->view('example', ['ip' => getRealUserIp()]);
     }
 

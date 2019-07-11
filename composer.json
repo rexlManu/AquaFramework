@@ -1,6 +1,8 @@
 {
-    "require": {
-        "ravenflux/php-functions": "^1.1",
-        "twig/twig": "^2.0"
-    }
+  "require": {
+    "ravenflux/php-functions": "^1.1",
+    "twig/twig": "^2.0",
+    "vlucas/phpdotenv": "^3.4",
+    "ext-openssl": "*"
+  }
 }
