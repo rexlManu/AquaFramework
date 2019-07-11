@@ -12,6 +12,14 @@
 
 <div>
     <h1>Your IP: {{ ip }}</h1>
+
+    <form method="post" action="example">
+
+        <input type="text" name="name" value="test">
+        <button type="submit">Absenden</button>
+
+    </form>
+
 </div>
 
 </body>

@@ -382,6 +382,10 @@ class AquaRouter
                     return isset($match[0][0]) ? trim($match[0][0], '/') : null;
                 }, $matches, array_keys($matches));
 
+                if (strtolower($this->getRequestMethod()) == 'post') {
+                    array_push($params, new AquaRequest($this->getCurrentUri(), $this->getRequestHeaders()));
+                }
+
                 // Call the handling function with the URL parameters if the desired input is callable
                 $this->invoke($route['fn'], $params);
 

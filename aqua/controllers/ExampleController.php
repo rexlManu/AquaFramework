@@ -2,6 +2,7 @@
 
 namespace aqua\controllers;
 
+use aqua\framework\AquaRequest;
 use aqua\framework\Controller;
 
 class ExampleController extends Controller
@@ -24,6 +25,15 @@ class ExampleController extends Controller
         }
 
         return $this->view('example', ['ip' => getRealUserIp()]);
+    }
+
+    public function postExample(AquaRequest $aquaRequest)
+    {
+        /*
+         *      Run some code
+         */
+
+        return $this->back();
     }
 
 }

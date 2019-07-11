@@ -3,9 +3,7 @@
 namespace aqua;
 
 use aqua\framework\AquaRouter;
-use RavenFlux\Twig\PhpFunctionsExtension;
 use Twig\Environment;
-use Twig\Loader\ArrayLoader;
 use Twig\Loader\FilesystemLoader;
 
 class Kernel
