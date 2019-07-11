@@ -17,4 +17,9 @@ class AquaCookie
         return AquaCrypt::decrypt($_COOKIE[$key]);
     }
 
+    public static function has(string $key)
+    {
+        return array_key_exists($key, $_COOKIE);
+    }
+
 }

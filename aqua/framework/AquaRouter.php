@@ -352,6 +352,7 @@ class AquaRouter
      * @param bool $quitAfterRun Does the handle function need to quit after one route was matched?
      *
      * @return int The number of routes handled
+     * @throws \Exception
      */
     private function handle($routes, $quitAfterRun = false)
     {
@@ -383,7 +384,16 @@ class AquaRouter
                 }, $matches, array_keys($matches));
 
                 if (strtolower($this->getRequestMethod()) == 'post') {
-                    array_push($params, new AquaRequest($this->getCurrentUri(), $this->getRequestHeaders()));
+
+                    if (!array_key_exists("_token", $_POST)) {
+                        throw new \Exception("The csrf token is missing");
+                    }
+                    if (AquaCrypt::decrypt($_POST['_token']) == csrfToken()) {
+                        array_push($params, new AquaRequest($this->getCurrentUri(), $this->getRequestHeaders()));
+                        regenerateCsrfToken();
+                    } else {
+                        throw new \Exception("wrong csrf token provided");
+                    }
                 }
 
                 // Call the handling function with the URL parameters if the desired input is callable

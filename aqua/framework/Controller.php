@@ -11,6 +11,7 @@ class Controller
 
     public function view(string $view, array $params = [])
     {
+        $params['_token'] = AquaCrypt::encrypt(csrfToken());
         return Kernel::$twig->render($view . '.aqua.php', $params);
     }
 

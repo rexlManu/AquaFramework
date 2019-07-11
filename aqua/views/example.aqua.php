@@ -16,6 +16,8 @@
     <form method="post" action="example">
 
         <input type="text" name="name" value="{{name}}">
+        <input type="hidden" name="_token" id="csrf-token" value="{{_token}}" />
+
         <button type="submit">Absenden</button>
 
     </form>

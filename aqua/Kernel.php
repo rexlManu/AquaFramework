@@ -2,6 +2,7 @@
 
 namespace aqua;
 
+use aqua\framework\AquaCookie;
 use aqua\framework\AquaRouter;
 use aqua\framework\AquaSession;
 use aqua\framework\providers\NormalAquaSession;
@@ -35,6 +36,10 @@ class Kernel
         }
 
         AquaSession::getCurrent()->handle();
+
+        if (!AquaCookie::has("_token")) {
+            regenerateCsrfToken();
+        }
 
         self::$router->run();
     }
