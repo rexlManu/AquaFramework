@@ -3,9 +3,10 @@
 namespace aqua;
 
 use aqua\framework\AquaCookie;
+use aqua\framework\AquaDatabase;
 use aqua\framework\AquaRouter;
 use aqua\framework\AquaSession;
-use aqua\framework\providers\NormalAquaSession;
+use aqua\framework\providers\CookieAquaSession;
 use Dotenv\Dotenv;
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
@@ -18,7 +19,8 @@ class Kernel
     public static $twig;
 
     public static $providers = [
-        'session' => NormalAquaSession::class
+        'session' => CookieAquaSession::class,
+        'database' => AquaDatabase::class
     ];
 
     public static function boot()

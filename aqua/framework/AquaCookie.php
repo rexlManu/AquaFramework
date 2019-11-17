@@ -22,4 +22,12 @@ class AquaCookie
         return array_key_exists($key, $_COOKIE);
     }
 
+    public static function delete(string $key)
+    {
+        if (self::has($key)) {
+            unset($_COOKIE[$key]);
+            setcookie($key, '', time() - 3600);
+        }
+    }
+
 }

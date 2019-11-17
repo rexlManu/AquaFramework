@@ -4,7 +4,7 @@
 namespace aqua\framework;
 
 
-use aqua\framework\providers\NormalAquaSession;
+use aqua\framework\providers\CookieAquaSession;
 use aqua\Kernel;
 
 abstract class AquaSession
